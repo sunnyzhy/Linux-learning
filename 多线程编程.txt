@@ -1,0 +1,38 @@
+1. 代码
+#include <iostream>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
+using namespace std;
+
+void *thread(void *ptr)
+{
+int i;
+for(i=0;i<3;i++){
+sleep(1);  //包含在unistd.h
+cout<<"This is the sub thread."<<endl;}
+}
+
+int main(void)
+{
+pthread_t id;
+int i,ret;
+ret=pthread_create(&id,NULL,thread,NULL);
+if(ret!=0){
+cout<<"Create thread error!"<<endl;
+exit(1);  //包含在stdlib.h
+}
+for(i=0;i<3;i++){
+cout<<"This is the main thread."<<endl;
+sleep(1);
+}
+pthread_join(id,NULL);
+cout<<"thread is complete!"<<endl;
+return (0);
+}
+
+2.编译
+g++ H.cpp -o H  -lpthread  //pthread的库不是linux系统的库，所以在进行编译的时候要加上-lpthread
+
+3.运行
+./H
