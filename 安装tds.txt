@@ -1,0 +1,41 @@
+1. 下载:  http://www.freetds.org/
+
+2. 解压： tar zxvf freetds-patched.tar.gz
+
+3. cd freetds-0.95.77
+
+4. 切换到root： su root()
+
+5. ./configure --prefix=/usr/local/freetds --with-tdsver=8.0 --enable-msdblib 
+说明：
+    安装freetds到目录/usr/local/freetds：--prefix=/usr/local/freetds
+    支持MSSQL2000：--with-tdsver=8.0 
+    支持MSSQL2008：--with-tdsver=11.0 
+    是否允许Microsoft数据库函数库：--enable-msdblib
+
+6. make
+
+7. make install
+
+8. 配置环境变量:
+   (1) gedit /root/.bashrc
+   (2) export PATH=$PATH:/usr/local/freetds/bin
+       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib 
+   (3) source /root/.bashrc (使设置立即生效)
+
+9. tsql -C
+说明：
+    如果版本显示为：TDS version: 5.0，那么说明tds版本较低，此时需要指定较高版本的tds
+
+9. TDSVER=7.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
+说明：
+    TDSVER=7.0 ： 指定tds版本为7.0，如果版本较高，就不用指定
+    H ： sql server的ip
+    p ： 为sql server的端口
+    U ： 登录sql server所使用的用户名
+    P ： 密码
+
+10. use 数据库名称
+    go
+    sql 语句
+    go
