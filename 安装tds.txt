@@ -19,8 +19,9 @@
 
 8. 配置环境变量:
    (1) gedit /root/.bashrc
-   (2) export PATH=$PATH:/usr/local/freetds/bin
-       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib 
+   (2) export PATH=$PATH:/usr/local/freetds/bin (添加bin目录)
+       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib (添加lib目录)
+       export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/freetds/include (添加include目录)
    (3) source /root/.bashrc (使设置立即生效)
 
 9. tsql -C
