@@ -57,4 +57,11 @@ ps,手动配置数据源:
     g++ XX.cpp -o XX -L/usr/local/freetds/lib -lsybdb -I/usr/local/freetds/include
 
 14. 运行:
-    ./H，如果连接数据库失败，那么需要指定tds版本：TDSVER=8.0 ./H
+    ./XX，如果连接数据库失败，就需要指定tds版本：TDSVER=8.0 ./XX
+    
+15. 如果中文出现乱码，就需要修改freetds.conf中的全局配置:
+    (1). gedit /usr/local/freetds/etc/freetds.conf
+    (2). 增加或修改全局配置
+[global]
+	client  charset = UTF-8
+	(3). ldconfig
