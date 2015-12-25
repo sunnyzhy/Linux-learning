@@ -9,8 +9,7 @@
 5. ./configure --prefix=/usr/local/freetds --with-tdsver=8.0 --enable-msdblib 
 说明：
     安装freetds到目录/usr/local/freetds：--prefix=/usr/local/freetds
-    支持MSSQL2000：--with-tdsver=8.0 
-    支持MSSQL2008：--with-tdsver=11.0 
+    with-tdsver用于指定TDS协议版本，最新版本的tds能支持目前新版本的MS SQL Server
     是否允许Microsoft数据库函数库：--enable-msdblib
 
 6. make
