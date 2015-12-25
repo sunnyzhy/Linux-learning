@@ -32,13 +32,21 @@
 说明：
     如果版本显示为：TDS version: 5.0，那么说明tds版本较低，此时需要指定较高版本的tds
 
-11. TDSVER=7.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
+11. TDSVER=8.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
 说明：
-    TDSVER=7.0 ： 指定tds版本为7.0，如果版本较高，就不用指定
+    TDSVER=8.0 ： 指定tds版本为8.0，如果版本较高，就不用指定
     H ： sql server的ip
     p ： 为sql server的端口
     U ： 登录sql server所使用的用户名
     P ： 密码
+ps,手动配置数据源:
+(1). gedit /usr/local/freetds/etc/freetds.conf
+(2). 在最后一行添加:
+[SQL2008]
+        host = 0.0.0.0
+        port = 1433
+        tds version=8.0 
+(3). tsql -S SQL2008 -U uid -P password
 
 12. use 数据库名称
     go
