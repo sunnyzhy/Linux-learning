@@ -55,3 +55,6 @@ ps,手动配置数据源:
 
 13. 编译:
     g++ XX.cpp -o XX -L/usr/local/freetds/lib -lsybdb -I/usr/local/freetds/include
+
+14. 运行:
+    ./H，如果连接数据库失败，那么需要指定tds版本：TDSVER=8.0 ./H
