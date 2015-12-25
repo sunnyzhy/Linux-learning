@@ -45,3 +45,6 @@
     go
     sql 语句
     go
+
+13. 编译:
+    g++ XX.cpp -o XX -L/usr/local/freetds/lib -lsybdb -I/usr/local/freetds/include
