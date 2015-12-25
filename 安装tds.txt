@@ -23,12 +23,17 @@
        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib (添加lib目录)
        export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/freetds/include (添加include目录)
    (3) source /root/.bashrc (使设置立即生效)
+   
+9.加载库文件:
+   (1) gedit /etc/ld.so.conf
+   (2) 在配置文件的最后一行添加 /usr/local/freetds/lib
+   (3) ldconfig
 
-9. tsql -C
+10.
 说明：
     如果版本显示为：TDS version: 5.0，那么说明tds版本较低，此时需要指定较高版本的tds
 
-9. TDSVER=7.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
+11. TDSVER=7.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
 说明：
     TDSVER=7.0 ： 指定tds版本为7.0，如果版本较高，就不用指定
     H ： sql server的ip
@@ -36,7 +41,7 @@
     U ： 登录sql server所使用的用户名
     P ： 密码
 
-10. use 数据库名称
+12. use 数据库名称
     go
     sql 语句
     go
