@@ -1,0 +1,40 @@
+1. 打开wiki.ubuntu.org.cn，点击源列表，复制最新的源
+2. $ gedit /etc/apt/sources.list
+3. 在最后面粘贴刚才复制的源
+4. 参考wiki.ubuntu.org.cn/Samba，输入:
+$ apt-get update
+$ apt-get install samba
+$ apt-get install kdenetwork-filesharing
+$ gedit /etc/samba/smb.conf
+找到; security = user，用下面几行替代:
+security = user
+username map = /etc/samba/smbusers
+在最后面输入下面几行内容哦:
+[Share]
+comment = Shared Folder with username and password
+path = /home/用户名/share
+public = yes
+writable = yes
+valid users = new  --设置共享目录的登录帐号，即网络帐号
+create mask = 0700
+directory mask = 0700
+force user = nobody
+force group = nogroup
+available = yes
+browseable = yes 
+找到［global］:
+workgroup = WORKGROUP
+display charset = UTF-8  --防止出现中文目录出现乱码
+unix charset = UTF-8
+dos charset = cp936 
+$ useradd new   --增加网络帐号new
+$ smbpasswd -a new  --设置网络帐号new的登录密码
+$ gedit /etc/samba/smbusers 
+在新建立的文件内加入下面这一行并保存:
+new = "network username"
+$ testparm  --输入设置的网络帐号，会显示smb.conf的内容
+$ /etc/init.d/smbd restart --重启samba服务
+如果显示以下的内容，就说明samba服务启动成功:
+smbd stop/waiting
+smbd start/running, process 9132
+5. 在windows系统里输入: \\linux的ip\Share
