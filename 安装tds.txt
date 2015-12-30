@@ -1,38 +1,31 @@
 1. 下载:  http://www.freetds.org/
-
-2. 解压： tar zxvf freetds-patched.tar.gz
-
-3. cd freetds-0.95.77
-
-4. 切换到root： su root()
-
-5. ./configure --prefix=/usr/local/freetds --with-tdsver=8.0 --enable-msdblib 
+$ tar zxvf freetds-patched.tar.gz
+$ cd freetds-0.95.77
+$ su root
+$ ./configure --prefix=/usr/local/freetds --with-tdsver=8.0 --enable-msdblib 
 说明：
     安装freetds到目录/usr/local/freetds：--prefix=/usr/local/freetds
     with-tdsver用于指定TDS协议版本，最新版本的tds能支持目前新版本的MS SQL Server
     是否允许Microsoft数据库函数库：--enable-msdblib
+$ make
+$ make install
 
-6. make
-
-7. make install
-
-8. 配置环境变量:
-   (1) gedit /root/.bashrc
-   (2) export PATH=$PATH:/usr/local/freetds/bin (添加bin目录)
-       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib (添加lib目录)
-       export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/freetds/include (添加include目录)
-   (3) source /root/.bashrc (使设置立即生效)
+2. 配置环境变量:
+   (1) $ gedit /root/.bashrc
+   (2) $ export PATH=$PATH:/usr/local/freetds/bin (添加bin目录)
+       $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/freetds/lib (添加lib目录)
+       $ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/freetds/include (添加include目录)
+   (3) $ source /root/.bashrc (使设置立即生效)
    
-9.加载库文件:
-   (1) gedit /etc/ld.so.conf
+3.加载库文件:
+   (1) $ gedit /etc/ld.so.conf
    (2) 在配置文件的最后一行添加 /usr/local/freetds/lib
-   (3) ldconfig
+   (3) $ ldconfig
 
-10.
 说明：
     如果版本显示为：TDS version: 5.0，那么说明tds版本较低，此时需要指定较高版本的tds
 
-11. TDSVER=8.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
+4. $ TDSVER=8.0 tsql -H 0.0.0.0 -p 0 -U uid -P password
 说明：
     TDSVER=8.0 ： 指定tds版本为8.0，如果版本较高，就不用指定
     H ： sql server的ip
@@ -40,28 +33,28 @@
     U ： 登录sql server所使用的用户名
     P ： 密码
 ps,手动配置数据源:
-(1). gedit /usr/local/freetds/etc/freetds.conf
+(1). $ gedit /usr/local/freetds/etc/freetds.conf
 (2). 在最后一行添加:
 [SQL2008]
         host = 0.0.0.0
         port = 1433
         tds version=8.0 
-(3). tsql -S SQL2008 -U uid -P password
+(3). $ tsql -S SQL2008 -U uid -P password
 
-12. use 数据库名称
+5. use 数据库名称
     go
     sql 语句
     go
 
-13. 编译:
-    g++ XX.cpp -o XX -L/usr/local/freetds/lib -lsybdb -I/usr/local/freetds/include
+6. 编译:
+    $ g++ XX.cpp -o XX -L/usr/local/freetds/lib -lsybdb -I/usr/local/freetds/include
 
-14. 运行:
-    ./XX，如果连接数据库失败，就需要指定tds版本：TDSVER=8.0 ./XX
+7. 运行:
+    $ ./XX，如果连接数据库失败，就需要指定tds版本：$ TDSVER=8.0 ./XX
     
-15. 如果中文出现乱码，就需要修改freetds.conf中的全局配置:
-    (1). gedit /usr/local/freetds/etc/freetds.conf
+8. 如果中文出现乱码，就需要修改freetds.conf中的全局配置:
+    (1). $ gedit /usr/local/freetds/etc/freetds.conf
     (2). 增加或修改全局配置
 [global]
 	client  charset = UTF-8
-	(3). ldconfig
+	(3). $ ldconfig
