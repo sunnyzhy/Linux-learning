@@ -11,9 +11,9 @@ int main()
 
 2. 存盘为Hello.cpp
 
-3. g++ Hello.cpp -o hello
+$ g++ Hello.cpp -o hello
 
-4. ./hello
+$ ./hello
 
 方法二：
 1. 代码:
@@ -45,11 +45,10 @@ int main()
 }
 
 2. 按顺序编译文件(参数-c 只编译不连接)
-g++ -c Hello.cpp -o Hello.o
-g++ -c H.cpp -o H.o
-g++ H.o Hello.o -o H
-
-3. ./H
+$ g++ -c Hello.cpp -o Hello.o
+$ g++ -c H.cpp -o H.o
+$ g++ H.o Hello.o -o H
+$ ./H
 
 方法三：
 1. 代码同上
@@ -64,8 +63,8 @@ H.o : H.cpp
 clean : 
 	rm H H.o Hello.o
 
-3. make
+$ make
 
-4. ./H
+$ ./H
 
-5. make clean
+$ make clean
