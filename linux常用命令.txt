@@ -1,12 +1,12 @@
-mkdir 新建文件夹
+$ mkdir 新建文件夹
 
-rm -rf dir 删除文件夹
+$ rm -rf dir 删除文件夹
 
-vi filname(:w保存 :q退出 :q!放弃修改并退出) 新建文件
+$ vi filname(:w保存 :q退出 :q!放弃修改并退出) 新建文件
 
-rm -f filname 删除文件
+$ rm -f filname 删除文件
 
-chmod 授权
+$ chmod 授权
 使用方式 : chmod [-cfvR] [--help] [--version] mode file
 说明 : Linux/Unix 的档案存取权限分为三级 : 档案拥有者、群组、其他。
 参数格式 :
@@ -29,3 +29,4 @@ mode : 权限设定字串，格式如下 : [ugoa][[+-=][rwxX]]，其中
 　　范例：
 　　chmod a=rwx file 和chmod 777 file效果相同
 　　chmod ug=rwx,o=x file和chmod 771 file效果相同
+$ lsb_release -a 查看系统信息
