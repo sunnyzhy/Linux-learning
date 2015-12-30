@@ -1,7 +1,17 @@
-1. 打开wiki.ubuntu.org.cn，点击源列表，复制最新的源
-2. $ gedit /etc/apt/sources.list
-3. 在最后面粘贴刚才复制的源
-4. 参考wiki.ubuntu.org.cn/Samba，输入:
+wiki.ubuntu.org.cn/Samba
+1. 在源文件里面添加以下的源:
+deb http://archive.ubuntu.com/ubuntu/ vivid main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ vivid-security main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ vivid-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ vivid-proposed main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ vivid-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ vivid main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ vivid-security main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ vivid-updates main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ vivid-proposed main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ vivid-backports main restricted universe multiverse
+2. 安装与配置步骤: 
+$ gedit /etc/apt/sources.list
 $ apt-get update
 $ apt-get install samba
 $ apt-get install kdenetwork-filesharing
@@ -37,4 +47,4 @@ $ /etc/init.d/smbd restart --重启samba服务
 如果显示以下的内容，就说明samba服务启动成功:
 smbd stop/waiting
 smbd start/running, process 9132
-5. 在windows系统里输入: \\linux的ip\Share
+3. 在windows系统里输入: \\linux的ip\Share，在验证窗口里面输入刚才配置的网络帐号
