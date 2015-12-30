@@ -1,9 +1,8 @@
-1. sudo gedit /etc/apt/sources.list
-
-2.添加源deb http://cz.archive.ubuntu.com/ubuntu trusty main
-
-3. sudo apt-get update
-
-4. sudo apt-get install g++
-
 http://packages.ubuntu.com/trusty/i386/build-essential/download
+
+添加源deb http://cz.archive.ubuntu.com/ubuntu trusty main
+$ gedit /etc/apt/sources.list
+$ sudo apt-get update
+$ sudo apt-get install g++
+
+
