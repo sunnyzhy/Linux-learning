@@ -1,0 +1,21 @@
+1. 更新源:
+$ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+$ gedit /etc/apt/sources.list
+在最后面添加以下源:
+deb http://download.mono-project.com/repo/debian wheezy main
+$ apt-get update
+$ apt-get install mono-complete  --安装Mono
+$ apt-get install monodevelop  --安装Monodevelop IDE软件
+2. 安装完成之后，在/usr/lib下会生成mono，monodevelop，monodoc，mono-source-libs这几个目录，其中，mono目录包含了.net framework各个版本的类库。
+3. 新建Hello.cs，编辑C#代码:
+class Hello
+{
+	public static void Main(string[ ] args)
+	{ 
+		System.Console.WriteLine("Hello World!");
+	}
+}
+4. 编译:
+$ mcs Hello.cs
+5. 运行:
+$ mono Hello.exe 或 $ ./Hello.exe
