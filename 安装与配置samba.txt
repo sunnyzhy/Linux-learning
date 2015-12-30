@@ -47,4 +47,5 @@ $ /etc/init.d/smbd restart --重启samba服务
 如果显示以下的内容，就说明samba服务启动成功:
 smbd stop/waiting
 smbd start/running, process 9132
+$ chmod 777 share  --设置共享目录的访问权限
 3. 在windows系统里输入: \\linux的ip\Share，在验证窗口里面输入刚才配置的网络帐号
