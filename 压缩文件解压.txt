@@ -1,0 +1,11 @@
+1. gz文件:
+$ tar -zxvf xx.tar.gz
+
+2. bz2文件:
+$ tar -xvjf xx.tar.bz2  --解压到当前文件夹
+或
+$ tar -xvjf xx.tar.bz2 -C /home/dir  --解压到了dir文件夹
+
+3. xz文件:
+$ xz -d xx.tar.xz
+$ tar -xvf  xx.tar
