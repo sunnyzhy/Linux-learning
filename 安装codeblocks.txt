@@ -1,0 +1,7 @@
+1.下载http://www.codeblocks.org/downloads
+
+2. 解压codeblocks-13.12-1_i386.debian.stable.tar.xz
+$ xz -d codeblocks-13.12-1_i386.debian.stable.tar.xz
+$ tar -xvf codeblocks-13.12-1_i386.debian.stable.tar
+$ cd debian-stable/i386
+$ dpkg -i *.deb
