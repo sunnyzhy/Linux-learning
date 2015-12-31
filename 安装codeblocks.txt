@@ -5,3 +5,8 @@ $ xz -d codeblocks-13.12-1_i386.debian.stable.tar.xz
 $ tar -xvf codeblocks-13.12-1_i386.debian.stable.tar
 $ cd debian-stable/i386
 $ dpkg -i *.deb
+
+注意:
+    如果出现codeblocks无法正常编辑代码的情况，那么可能是ibus与codeblocks冲突造成的，解决方法如下:
+    $ apt-get remove ibus  --卸载ibus输入法
+    $ apt-get install fcitx  --安装fcitx输入法
